@@ -1,39 +1,54 @@
 package List;
 
+/*
+ * Класс односвязного списка
+ */
 public class List {
 
-    private Node head;
+    private Node head;  // Голова
 
+    /*
+      Вывод списка на печать
+     */
     public void print() {
-        Node current=head;
-        if (head==null)
+        Node current = head;
+        if (head == null)
             System.out.println("List is empty");
-        while(current!=null) {
-            System.out.print(current.value+" ");
-            current=current.next;
+        while (current != null) {
+            System.out.print(current.value + " ");
+            current = current.next;
         }
         System.out.println();
     }
 
+    /*
+        Разворот списка
+     */
     public void revert() {
-        if (head != null && head.next!=null) {
-            Node temp=head;
+        if (head != null && head.next != null) {
+            Node temp = head;
             revert(head, head.next);
-            temp.next=null;
+            temp.next = null;
         }
     }
 
+    /*
+        Вспомогательный метод для рекурсивного алгоритма разворота списка
+     */
     private void revert(Node curNode, Node nextNode) {
         if (nextNode.next == null) {
-            nextNode.next=curNode;
-            head=nextNode;
+            nextNode.next = curNode;
+            head = nextNode;
         } else {
-            revert(nextNode,nextNode.next);
-            nextNode.next=curNode;
+            revert(nextNode, nextNode.next);
+            nextNode.next = curNode;
         }
 
     }
 
+    /*
+        Добавление в начало списка
+     */
     public void addFirst(int value) {
         Node node = new Node();
         node.value = value;
@@ -41,12 +56,18 @@ public class List {
         head = node;
     }
 
+    /*
+        Удаление начального узла списка
+     */
     public void removeFirst() {
         if (head != null) {
             head = head.next;
         }
     }
 
+    /*
+        Проверка содержания в списке значения
+     */
     public boolean contains(int searchValue) {
         Node node = head;
         while (node != null) {
@@ -57,6 +78,9 @@ public class List {
         return false;
     }
 
+    /*
+        Добавление в конец списка
+     */
     public void addLast(int value) {
         Node node = new Node();
         node.value = value;
@@ -71,6 +95,9 @@ public class List {
 
     }
 
+    /*
+        Удаление конечного узла списка
+     */
     public void removeLast() {
         Node current = head;
         Node previous = head;
@@ -98,9 +125,11 @@ public class List {
         return 0;
     }
 
-
+    /*
+        Внутренний класс узла списка
+     */
     private class Node {
-        int value;
-        Node next;
+        int value;  // Значение
+        Node next;  // Ссылка на следуюющий узел
     }
 }

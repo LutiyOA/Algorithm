@@ -1,9 +1,15 @@
 package List;
 
+/*
+ * Класс двухсвязного списка
+ */
 public class LinkedList {
-    private Node head;
-    private Node tail;
+    private Node head;  // Голова
+    private Node tail;  // Хвост
 
+    /*
+        Разворот списка
+    */
     public void revert() {
         Node current = head;
         while (current != null) {
@@ -17,6 +23,9 @@ public class LinkedList {
         tail = current;
     }
 
+    /*
+        Вывод списка на печать
+    */
     public void print() {
         Node current = head;
         if (head == null)
@@ -28,12 +37,11 @@ public class LinkedList {
         System.out.println();
     }
 
-    private class Node {
-        int value;
-        Node next;
-        Node prev;
-    }
 
+
+    /*
+        Добавление в начало списка
+    */
     public void addFirst(int value) {
         Node node = new Node();
         node.value = value;
@@ -46,6 +54,9 @@ public class LinkedList {
         head = node;
     }
 
+    /*
+        Удаление начального узла списка
+    */
     public void removeFirst() {
         if (head != null && head.next != null) {
             head.next.prev = null;
@@ -55,6 +66,9 @@ public class LinkedList {
         }
     }
 
+    /*
+        Добавление в конец списка
+    */
     public void addLast(int value) {
         Node node = new Node();
         node.value = value;
@@ -68,6 +82,9 @@ public class LinkedList {
         }
     }
 
+    /*
+        Удаление конечного узла списка
+     */
     public void removeLast() {
         if (tail == null)
             return;
@@ -81,6 +98,9 @@ public class LinkedList {
         }
     }
 
+    /*
+        Проверка содержания в списке значения
+    */
     public boolean contains(int searchValue) {
         Node node = head;
         while (node != null) {
@@ -93,6 +113,15 @@ public class LinkedList {
 
     public void sort() {
 
+    }
+
+    /*
+            Внутренний класс узла списка
+    */
+    private class Node {
+        int value;  // Значение
+        Node next;  // Ссылка на следующий узел
+        Node prev;  // Ссылка на предыдущий узел
     }
 }
 
