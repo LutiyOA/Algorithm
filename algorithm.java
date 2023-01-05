@@ -3,8 +3,8 @@ import sort.InsertionSort;
 import sort.PiramidaSort;
 import sort.QuickSort;
 import print.PrintArray;
-import List.List;
-import List.LinkedList;
+import list.List;
+import list.LinkedList;
 
 import java.util.Date;
 import java.util.Scanner;
