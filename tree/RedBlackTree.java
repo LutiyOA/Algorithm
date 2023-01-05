@@ -5,6 +5,18 @@ import java.beans.PropertyEditorSupport;
 public class RedBlackTree {
     private Node root;
 
+    public void printTree() {
+        printTree(root);
+    }
+
+    private void printTree(Node node) {
+        if (node != null) {
+            printTree(node.left);
+            System.out.print(node.value + " ");
+            printTree(node.right);
+        }
+    }
+
     public boolean add(int... values) {
         boolean result = true;
         for (int val : values) {
